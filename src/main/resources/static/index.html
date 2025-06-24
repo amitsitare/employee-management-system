@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-users"></i> Employee Management System</h1>
+            <p>Manage your employees efficiently</p>
+        </header>
+
+        <!-- Add Employee Form -->
+        <div class="form-section">
+            <h2><i class="fas fa-user-plus"></i> Add New Employee</h2>
+            <form id="employeeForm">
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user"></i> Name:
+                    </label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Email:
+                    </label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">
+                        <i class="fas fa-phone"></i> Phone:
+                    </label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Add Employee
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2><i class="fas fa-search"></i> Search Employees</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by name, email, or phone...">
+                <button onclick="searchEmployees()" class="btn btn-search">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button onclick="loadEmployees()" class="btn btn-refresh">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </div>
+
+        <!-- Employee List -->
+        <div class="employee-list-section">
+            <h2><i class="fas fa-list"></i> Employee List</h2>
+            <div class="loading" id="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+            <div class="employee-grid" id="employeeGrid">
+                <!-- Employee cards will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-edit"></i> Edit Employee</h3>
+                    <span class="close" onclick="closeEditModal()">&times;</span>
+                </div>
+                <form id="editEmployeeForm">
+                    <input type="hidden" id="editId">
+                    <div class="form-group">
+                        <label for="editName">
+                            <i class="fas fa-user"></i> Name:
+                        </label>
+                        <input type="text" id="editName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">
+                            <i class="fas fa-envelope"></i> Email:
+                        </label>
+                        <input type="email" id="editEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">
+                            <i class="fas fa-phone"></i> Phone:
+                        </label>
+                        <input type="tel" id="editPhone" name="phone" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update Employee
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeEditModal()">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
