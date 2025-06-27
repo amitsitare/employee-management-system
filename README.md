@@ -45,9 +45,9 @@ Before running the application, make sure you have:
    ```
 3. Update the database credentials in `src/main/resources/application.properties` if needed:
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/university
-   spring.datasource.username=root
-   spring.datasource.password=Amit@123
+   spring.datasource.url=jdbc:mysql://localhost:3306/Emp
+   spring.datasource.username=hdts
+   spring.datasource.password=xxxxxx
    ```
 
 ## How to Run
